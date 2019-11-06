@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 
@@ -20,7 +20,11 @@ function Date() {
             })
     }, [])
     return (
-        <p>{date}</p>
+        <div className='titleDateClass'>
+        <p>Date: {date}</p>
+        <p>This image holds the title: <br />
+        <span>{title}</span></p>
+        </div>
     )
 }
 

@@ -9,7 +9,7 @@ function PhotoOfTheDay() {
 
         axios
             .get('https://api.nasa.gov/planetary/apod?api_key=UD9nf5xabto28IXBRZqs1msmfvfYLvAj84ENRiQa')
-            .then(response => {
+             .then(response => {
                 console.log(response.data);
                 setImage(response.data.hdurl)
             })
@@ -21,5 +21,4 @@ function PhotoOfTheDay() {
         <img src={image} width='700px' height='700px'></img>
     )
 }
-
-export default PhotoOfTheDay
+ export default PhotoOfTheDay
