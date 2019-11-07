@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import styled from 'styled-components';
 
+const ExplanationText = styled.p`
+    width: 35%;
+    position: relative;
+    left: 32%;
+    font-size: 20px;
 
-function Explanation() {
+    span {
+        color: black;
+        font-size: 30px;
+        font-weight: 500;
+    }
+`
+
+function Explanation(props) {
     const [explanation, setExplanation] = useState([])
 
-    useEffect(() => {
-
-        axios
-            .get('https://api.nasa.gov/planetary/apod?api_key=UD9nf5xabto28IXBRZqs1msmfvfYLvAj84ENRiQa')
-            .then(response => {
-                console.log(response.data);
-                setExplanation(response.data.explanation)
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, [])
     return (
-        <p className='explanation'><span>Explanation:</span><br />
+        <ExplanationText ><span>Explanation:</span><br />
         <br />
-        {explanation}</p>
+        {props.explanation}</ExplanationText>
     )
 }
 

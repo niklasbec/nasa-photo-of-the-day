@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import styled from 'styled-components';
 
 
-function Date() {
-    const [date, setDate] = useState([])
-    const [title, setTitle] = useState([])
+const DateP = styled.p`
+    color: red;
+    font-size: 14px;
+    margin-top: -20px;
+    margin-bottom: 60px;
+`
 
-    useEffect(() => {
-
-        axios
-            .get('https://api.nasa.gov/planetary/apod?api_key=UD9nf5xabto28IXBRZqs1msmfvfYLvAj84ENRiQa')
-            .then(response => {
-                console.log(response.data);
-                setDate(response.data.date)
-                setTitle(response.data.title)
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, [])
+function Date(props) {
+    
     return (
         <div className='titleDateClass'>
-        <p>Date: {date}</p>
-        <p>This image holds the title: <br />
-        <span>{title}</span></p>
+        <DateP>Date: {props.date}</DateP>
         </div>
     )
 }
